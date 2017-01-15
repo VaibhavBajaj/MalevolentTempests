@@ -1,7 +1,6 @@
-package org.terasology.MalevolentTempests.world.Updraft;
+package org.terasology.MalevolentTempests.world.Updrafts;
 
 
-import org.terasology.MalevolentTempests.world.TempestsFacet;
 import org.terasology.math.ChunkMath;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.registry.CoreRegistry;

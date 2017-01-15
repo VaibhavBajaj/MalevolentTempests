@@ -1,4 +1,4 @@
-package org.terasology.MalevolentTempests.world.Updraft;
+package org.terasology.MalevolentTempests.world.Updrafts;
 
 import org.terasology.MalevolentTempests.world.TempestsFacet;
 import org.terasology.math.geom.BaseVector2i;
@@ -40,6 +40,7 @@ public class UpdraftProvider implements FacetProviderPlugin {
                     && surfaceHeight <= facet.getWorldRegion().maxY()
                     && noise.noise(position.getX(), position.getY()) > 0.9996) {
                 facet.setWorld(position.getX(), surfaceHeight, position.getY(), true);
+                facet.setPos(position.getX(), position.getY());
             }
         }
 
