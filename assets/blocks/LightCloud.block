@@ -1,9 +1,9 @@
 {
-  "hardness": 4,
+  "hardness": 1,
   "attachmentAllowed": false,
-  "targetable": false,
+  "translucent": true,
   "shadowCasting": true,
   "entity": {
-    "prefab": "reddishDarkCloud"
+    "prefab": "lightCloud"
   }
 }

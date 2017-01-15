@@ -18,13 +18,15 @@ import java.util.List;
 @RegisterPlugin
 public class TempestsRasterizer implements WorldRasterizerPlugin{
 
+    private Block lightCloud;
     private Block darkCloud;
-    private Block reddishDarkCloud;
+    private Block water;
 
     @Override
     public void initialize() {
+        lightCloud = CoreRegistry.get(BlockManager.class).getBlock("MalevolentTempests:lightCloud");
         darkCloud = CoreRegistry.get(BlockManager.class).getBlock("MalevolentTempests:darkCloud");
-        reddishDarkCloud = CoreRegistry.get(BlockManager.class).getBlock("MalevolentTempests:reddishDarkCloud");
+        water = CoreRegistry.get(BlockManager.class).getBlock("Core:water");
     }
 
     @Override
@@ -33,12 +35,19 @@ public class TempestsRasterizer implements WorldRasterizerPlugin{
         TempestsFacet tempestsFacet = chunkRegion.getFacet(TempestsFacet.class);
 
         for (Vector3i position: chunkRegion.getRegion()) {
-            if (tempestsFacet.getWorld(position)
-                    && position.getY() >= tempestsFacet.getMinCloudHeight() + (tempestsFacet.getCloudThickness() / 2)) {
-                chunk.setBlock(ChunkMath.calcBlockPos(position), darkCloud);
-            }
-            else {
-                chunk.setBlock(ChunkMath.calcBlockPos(position), reddishDarkCloud);
+            if (tempestsFacet.getWorld(position)) {
+                if (position.getY() == tempestsFacet.getMinCloudHeight()) {
+                    chunk.setBlock(ChunkMath.calcBlockPos(position), water);
+                }
+                else if (position.getY() < tempestsFacet.getMaxCloudHeight() - 1) {
+                    chunk.setBlock(ChunkMath.calcBlockPos(position), darkCloud);
+                }
+                else if (position.getY() == tempestsFacet.getMaxCloudHeight() - 1) {
+                    chunk.setBlock(ChunkMath.calcBlockPos(position), lightCloud);
+                }
+                else if (Math.random() > 0.69) {
+                    chunk.setBlock(ChunkMath.calcBlockPos(position), lightCloud);
+                }
             }
         }
     }

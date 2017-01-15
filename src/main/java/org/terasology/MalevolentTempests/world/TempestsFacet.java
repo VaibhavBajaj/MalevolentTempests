@@ -18,10 +18,6 @@ public class TempestsFacet extends BaseBooleanFieldFacet3D {
         return minCloudHeight;
     }
 
-    public int getCloudThickness() {
-        return cloudThickness;
-    }
-
     public int getMaxCloudHeight() {
         return minCloudHeight + cloudThickness;
     }

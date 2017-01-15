@@ -15,24 +15,21 @@ import org.terasology.world.generator.plugin.RegisterPlugin;
 
 @RegisterPlugin
 @Produces(TempestsFacet.class)
-@Requires(@Facet(value = SurfaceHeightFacet.class))
+@Requires(@Facet(value = SurfaceHeightFacet.class, border = @FacetBorder(top = 517, bottom = 512)))
 public class TempestsProvider implements FacetProviderPlugin {
-
-    private Logger logger = LoggerFactory.getLogger(TempestsProvider.class);
 
     @Override
     public void process(GeneratingRegion region) {
 
-        Border3D border = region.getBorderForFacet(TempestsFacet.class);
+        Border3D border = region.getBorderForFacet(TempestsFacet.class).extendBy(400, 0, 0);
         TempestsFacet facet = new TempestsFacet(region.getRegion(), border);
         SurfaceHeightFacet surfaceHeightFacet = region.getRegionFacet(SurfaceHeightFacet.class);
 
-        for (BaseVector2i position : surfaceHeightFacet.getWorldRegion().contents()) {
-            int surfaceHeight = (int) surfaceHeightFacet.getWorld(position);
-
-            if (surfaceHeight >= facet.getMinCloudHeight() &&
-                    surfaceHeight <= facet.getMaxCloudHeight()) {
-                facet.setWorld(position.getX(), surfaceHeight, position.getY(), true);
+        for(BaseVector2i position : surfaceHeightFacet.getWorldRegion().contents()) {
+            for( int height = facet.getMinCloudHeight(); height <= facet.getMaxCloudHeight(); height++) {
+                if (facet.getWorldRegion().encompasses(position.getX(), height, position.getY())) {
+                    facet.setWorld(position.getX(), height, position.getY(), true);
+                }
             }
         }
 
