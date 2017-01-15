@@ -1,6 +1,5 @@
 package org.terasology.MalevolentTempests.world.Updrafts;
 
-
 import org.terasology.math.ChunkMath;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.registry.CoreRegistry;
@@ -17,13 +16,13 @@ public class UpdraftRasterizer implements WorldRasterizerPlugin{
 
     private Block updraftA;
     private Block updraftB;
-    private Block air;
+    private Block updraft;
 
     @Override
     public void initialize() {
-        updraftA = CoreRegistry.get(BlockManager.class).getBlock("MalevolentTempests:updraftA");
-        updraftB = CoreRegistry.get(BlockManager.class).getBlock("MalevolentTempests:updraftB");
-        air = CoreRegistry.get(BlockManager.class).getBlock(BlockManager.AIR_ID);
+        updraftA = CoreRegistry.get(BlockManager.class).getBlock("MalevolentTempests:updraftGenA");
+        updraftB = CoreRegistry.get(BlockManager.class).getBlock("MalevolentTempests:updraftGenB");
+        updraft = CoreRegistry.get(BlockManager.class).getBlock("MalevolentTempests:updraft");
     }
 
     @Override
@@ -44,9 +43,13 @@ public class UpdraftRasterizer implements WorldRasterizerPlugin{
                             chunk.setBlock(ChunkMath.calcBlockPos(wx, position.getY(), wz), updraftB);
                         }
                         ctr++;
+                        for (int wy = position.getY() + 1; wy < 520; wy++) {
+                            chunk.setBlock(ChunkMath.calcBlockPos(wx, wy, wz), updraft);
+                        }
                     }
                 }
             }
+            ctr %= 2;
         }
     }
 }

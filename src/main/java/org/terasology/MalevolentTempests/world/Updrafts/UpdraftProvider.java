@@ -38,9 +38,8 @@ public class UpdraftProvider implements FacetProviderPlugin {
             if (facet.getWorldRegion().encompasses(position.getX(), surfaceHeight, position.getY())
                     && surfaceHeight >= facet.getWorldRegion().minY()
                     && surfaceHeight <= facet.getWorldRegion().maxY()
-                    && noise.noise(position.getX(), position.getY()) > 0.9996) {
+                    && noise.noise(position.getX(), position.getY()) > 0.9997) {
                 facet.setWorld(position.getX(), surfaceHeight, position.getY(), true);
-                facet.setPos(position.getX(), position.getY());
             }
         }
 

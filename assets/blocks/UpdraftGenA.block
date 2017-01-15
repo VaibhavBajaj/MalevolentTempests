@@ -4,6 +4,6 @@
   "translucent": true,
   "shadowCasting": true,
   "entity": {
-    "prefab": "updriftA"
+    "prefab": "updraftGenerator"
   }
 }

@@ -2,6 +2,6 @@
   "hardness": 50,
   "shadowCasting": true,
   "entity": {
-    "prefab": "updriftB"
+    "prefab": "updraftGenerator"
   }
 }

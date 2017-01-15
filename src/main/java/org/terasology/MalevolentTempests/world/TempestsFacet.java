@@ -6,8 +6,8 @@ import org.terasology.world.generation.facets.base.BaseBooleanFieldFacet3D;
 
 public class TempestsFacet extends BaseBooleanFieldFacet3D {
 
-    private int minCloudHeight = 512;
-    private int cloudThickness = 4;
+    private final int minCloudHeight = 512;
+    private final int cloudThickness = 4;
 
     public TempestsFacet(Region3i targetRegion, Border3D border) {
         super(targetRegion, border);

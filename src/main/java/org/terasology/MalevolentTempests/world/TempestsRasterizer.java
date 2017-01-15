@@ -1,7 +1,6 @@
 package org.terasology.MalevolentTempests.world;
 
 import org.terasology.math.ChunkMath;
-import org.terasology.math.Region3i;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.registry.CoreRegistry;
 import org.terasology.world.block.Block;
@@ -10,9 +9,6 @@ import org.terasology.world.chunks.CoreChunk;
 import org.terasology.world.generation.Region;
 import org.terasology.world.generation.WorldRasterizerPlugin;
 import org.terasology.world.generator.plugin.RegisterPlugin;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @RegisterPlugin
