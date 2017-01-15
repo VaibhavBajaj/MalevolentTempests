@@ -1,0 +1,9 @@
+{
+    "id" : "MalevolentTempests",
+    "version" : "0.1.0-SNAPSHOT",
+    "author" : "VaibhavBajaj",
+    "displayName" : "Malevolent Tempests",
+    "description" : "High above our known world, there lies a land on top of clouds. Cliche much? Well, there you go.",
+    "dependencies" : [{"id": "Core", "minVersion": "1.3.1"}],
+    "serverSideOnly" : false
+}

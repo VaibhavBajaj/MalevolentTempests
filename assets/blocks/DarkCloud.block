@@ -1,0 +1,9 @@
+{
+  "hardness": 1,
+  "attachmentAllowed": false,
+  "targetable": false,
+  "shadowCasting": true,
+  "entity": {
+    "prefab": "darkCloud"
+  }
+}
