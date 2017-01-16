@@ -14,8 +14,8 @@ import org.terasology.world.generation.Requires;
 import org.terasology.world.generation.facets.SurfaceHeightFacet;
 import org.terasology.world.generator.plugin.RegisterPlugin;
 
-/**
- * Marks random blocks as true in the updraftFacet.
+/*
+ * Marks random 3x3 block sets as true in the updraftFacet.
  */
 
 @RegisterPlugin
@@ -39,8 +39,13 @@ public class UpdraftProvider implements FacetProviderPlugin {
 
         for (BaseVector2i position : surfaceHeightFacet.getWorldRegion().contents()) {
             if (noise.noise(position.getX(), position.getY()) > 0.9996) {
-                if(facet.getWorldRegion().contains(position.getX(), position.getY())) {
-                    facet.setWorld(position.getX(), position.getY(), true);
+                if(facet.getWorldRegion().contains(position.getX(), position.getY()) &&
+                        facet.getWorldRegion().contains(position.getX() + 2, position.getY() + 2)) {
+                    for (int wx = position.getX(); wx <= position.getX() + 2; wx++) {
+                        for (int wz = position.getY(); wz <= position.getY() + 2; wz++) {
+                            facet.setWorld(wx, wz, true);
+                        }
+                    }
                 }
             }
         }
@@ -48,3 +53,4 @@ public class UpdraftProvider implements FacetProviderPlugin {
         region.setRegionFacet(UpdraftFacet.class, facet);
     }
 }
+

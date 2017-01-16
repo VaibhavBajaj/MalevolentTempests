@@ -1,0 +1,10 @@
+{
+  "hardness": 1,
+  "attachmentAllowed": false,
+  "translucent": true,
+  "penetrable": true,
+  "shadowCasting": true,
+  "entity": {
+    "prefab": "lightCloud"
+  }
+}

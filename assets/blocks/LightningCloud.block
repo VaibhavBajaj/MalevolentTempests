@@ -1,0 +1,11 @@
+{
+  /* TODO: You may consider making lightning blocks do damage. */
+  "hardness": 3,
+  "luminance": 15,
+  "attachmentAllowed": false,
+  "translucent": true,
+  "replacementAllowed": true,
+  "entity": {
+    "prefab": "lightningCloud"
+  }
+}
