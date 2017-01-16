@@ -14,6 +14,10 @@ import org.terasology.world.generation.Requires;
 import org.terasology.world.generation.facets.SurfaceHeightFacet;
 import org.terasology.world.generator.plugin.RegisterPlugin;
 
+/**
+ * Marks random blocks as true in the updraftFacet.
+ */
+
 @RegisterPlugin
 @Produces(UpdraftFacet.class)
 @Requires(@Facet(value = SurfaceHeightFacet.class, border = @FacetBorder(sides = 4)))

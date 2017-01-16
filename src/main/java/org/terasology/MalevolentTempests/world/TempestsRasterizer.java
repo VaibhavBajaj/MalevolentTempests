@@ -12,6 +12,10 @@ import org.terasology.world.generation.WorldRasterizerPlugin;
 import org.terasology.world.generator.plugin.RegisterPlugin;
 
 
+/**
+ * Rasterizes clouds.
+ */
+
 @RegisterPlugin
 public class TempestsRasterizer implements WorldRasterizerPlugin{
 
@@ -30,11 +34,13 @@ public class TempestsRasterizer implements WorldRasterizerPlugin{
     public void generateChunk(CoreChunk chunk, Region chunkRegion) {
 
         TempestsFacet tempestsFacet = chunkRegion.getFacet(TempestsFacet.class);
+        /* updraftFacet is needed to pinpoint places with updrafts and remove blocks from above them. */
         UpdraftFacet updraftFacet = chunkRegion.getFacet(UpdraftFacet.class);
 
         for (Vector3i position: chunkRegion.getRegion()) {
             if (tempestsFacet.getWorld(position)) {
 
+                /* emptySpace is used to set a 3x3 region above the updraft as air. */
                 boolean emptySpace = false;
 
                 for (int wx = position.getX() - 3; wx < position.getX(); wx++) {
@@ -44,6 +50,7 @@ public class TempestsRasterizer implements WorldRasterizerPlugin{
                     }
                 }
 
+                /* If the space is above an updraft, do not make anything here. */
                 if(emptySpace)
                     continue;
 

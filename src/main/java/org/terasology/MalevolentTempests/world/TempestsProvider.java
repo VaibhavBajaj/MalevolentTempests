@@ -13,6 +13,11 @@ import org.terasology.world.generation.Requires;
 import org.terasology.world.generation.facets.SurfaceHeightFacet;
 import org.terasology.world.generator.plugin.RegisterPlugin;
 
+
+/**
+ * Marks positions from minCloudHeight to maxCloudHeight as true on TempestsFacet.
+ */
+
 @RegisterPlugin
 @Produces(TempestsFacet.class)
 @Requires(@Facet(value = SurfaceHeightFacet.class, border = @FacetBorder(top = 517, bottom = 512)))
