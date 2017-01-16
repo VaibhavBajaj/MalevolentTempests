@@ -33,7 +33,7 @@ public class UpdraftRasterizer implements WorldRasterizerPlugin{
             if (updraftFacet.getWorld(position.getX(), position.getZ())) {
                 for (int wx = position.getX(); wx < position.getX() + 3; wx++) {
                     for (int wz = position.getZ(); wz < position.getZ() + 3; wz++) {
-                        if(position.getY() < 420 &&
+                        if(position.getY() < 495 &&
                                 ((position.getY() % 3 == 0) || ((-1 *position.getY()) % 3 == 0)))
                             chunk.setBlock(ChunkMath.calcBlockPos(wx, position.getY(), wz), updraft);
                     }
