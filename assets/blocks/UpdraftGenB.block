@@ -1,7 +1,0 @@
-{
-  "hardness": 50,
-  "shadowCasting": true,
-  "entity": {
-    "prefab": "updraftGenerator"
-  }
-}

@@ -1,5 +1,6 @@
 package org.terasology.MalevolentTempests.world;
 
+import org.terasology.MalevolentTempests.world.Updrafts.UpdraftFacet;
 import org.terasology.math.ChunkMath;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.registry.CoreRegistry;
@@ -29,9 +30,23 @@ public class TempestsRasterizer implements WorldRasterizerPlugin{
     public void generateChunk(CoreChunk chunk, Region chunkRegion) {
 
         TempestsFacet tempestsFacet = chunkRegion.getFacet(TempestsFacet.class);
+        UpdraftFacet updraftFacet = chunkRegion.getFacet(UpdraftFacet.class);
 
         for (Vector3i position: chunkRegion.getRegion()) {
             if (tempestsFacet.getWorld(position)) {
+
+                boolean emptySpace = false;
+
+                for (int wx = position.getX() - 3; wx < position.getX(); wx++) {
+                    for (int wz = position.getZ() - 3; wz < position.getZ(); wz++) {
+                        if(updraftFacet.getWorld(wx, wz))
+                            emptySpace = true;
+                    }
+                }
+
+                if(emptySpace)
+                    continue;
+
                 if (position.getY() == tempestsFacet.getMinCloudHeight()) {
                     chunk.setBlock(ChunkMath.calcBlockPos(position), water);
                 }

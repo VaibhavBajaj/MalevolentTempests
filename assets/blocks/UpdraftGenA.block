@@ -1,9 +1,0 @@
-{
-  "hardness": 50,
-  "attachmentAllowed": false,
-  "translucent": true,
-  "shadowCasting": true,
-  "entity": {
-    "prefab": "updraftGenerator"
-  }
-}
