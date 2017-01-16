@@ -14,7 +14,7 @@ Slip out of the updraft and you guarantee the lions a feast of human pancake.
 
 Up on top you see a VAST expanse of cloud upon cloud!
 
-![Vast expanse](https://puu.sh/to2kF/c6a8cb5a65.png)
+![Vast expanse](https://puu.sh/to8RP/0869710dff.png)
 
 Dont try digging the cloud or you shall fall to your DOOM!
 
