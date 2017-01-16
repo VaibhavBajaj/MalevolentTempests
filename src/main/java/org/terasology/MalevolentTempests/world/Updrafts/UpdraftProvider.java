@@ -35,7 +35,9 @@ public class UpdraftProvider implements FacetProviderPlugin {
 
         for (BaseVector2i position : surfaceHeightFacet.getWorldRegion().contents()) {
             if (noise.noise(position.getX(), position.getY()) > 0.9996) {
-                facet.setWorld(position.getX(), position.getY(), true);
+                if(facet.getWorldRegion().contains(position.getX(), position.getY())) {
+                    facet.setWorld(position.getX(), position.getY(), true);
+                }
             }
         }
 
