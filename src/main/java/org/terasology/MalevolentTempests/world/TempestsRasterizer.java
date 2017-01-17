@@ -23,7 +23,6 @@ public class TempestsRasterizer implements WorldRasterizerPlugin{
     private Block lightCloud;
     private Block darkCloud;
     private Block thinCloud;
-    private Block lightningCloud;
     private Block water;
 
     @Override
@@ -31,7 +30,6 @@ public class TempestsRasterizer implements WorldRasterizerPlugin{
         lightCloud = CoreRegistry.get(BlockManager.class).getBlock("MalevolentTempests:lightCloud");
         darkCloud = CoreRegistry.get(BlockManager.class).getBlock("MalevolentTempests:darkCloud");
         thinCloud = CoreRegistry.get(BlockManager.class).getBlock("MalevolentTempests:thinCloud");
-        lightningCloud = CoreRegistry.get(BlockManager.class).getBlock("MalevolentTempests:lightningCloud");
         water = CoreRegistry.get(BlockManager.class).getBlock("Core:water");
     }
 
@@ -64,15 +62,6 @@ public class TempestsRasterizer implements WorldRasterizerPlugin{
                     }
                     else if (Math.random() > 0.69) {
                         chunk.setBlock(ChunkMath.calcBlockPos(position), thinCloud);
-                    }
-                }
-                else if (expanseFacet.getWorld(position.getX(), position.getZ()) == -3) {
-                    /* LightningCloud */
-                    if (position.getY() == tempestsFacet.getMinCloudHeight()) {
-                        chunk.setBlock(ChunkMath.calcBlockPos(position), water);
-                    }
-                    else if (position.getY() < tempestsFacet.getMaxCloudHeight()) {
-                        chunk.setBlock(ChunkMath.calcBlockPos(position), lightningCloud);
                     }
                 }
             }

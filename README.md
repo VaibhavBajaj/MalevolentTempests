@@ -14,7 +14,7 @@ Slip out of the updraft and you guarantee the lions a feast of human pancake.
 
 Up on top you see a VAST expanse of cloud upon cloud!
 
-![Vast expanse](https://puu.sh/to8RP/0869710dff.png)
+![Vast expanse](https://puu.sh/tp78H/c41b2c5051.png)
 
 Dont try digging the cloud or you shall fall to your DOOM!
 
@@ -26,5 +26,4 @@ Dont try digging the cloud or you shall fall to your DOOM!
 ThinCloud: Cropped from pixabay image (https://pixabay.com/en/clouds-sky-cloud-dark-clouds-1473311/)
 LightCloud: Cropped from pixabay image (https://pixabay.com/en/clouds-sky-cloud-dark-clouds-1473311/)
 DarkCloud: Cropped from pixabay image (https://pixabay.com/en/storm-florida-clouds-nature-426787/)
-LightningCloud: Cropped from pixabay image (https://pixabay.com/en/thunder-lighting-lightning-cloud-1368797/)
 Updraft: Original made by VaibhavBajaj

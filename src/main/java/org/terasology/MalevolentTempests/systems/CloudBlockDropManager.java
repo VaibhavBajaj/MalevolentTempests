@@ -21,8 +21,7 @@ public class CloudBlockDropManager extends BaseComponentSystem{
         /* If block to be dropped is a cloud, destroy it before it is dropped. */
         if (itemComponent.stackId.equals("block:MalevolentTempests:lightCloud") ||
                 itemComponent.stackId.equals("block:MalevolentTempests:darkCloud") ||
-                itemComponent.stackId.equals("block:MalevolentTempests:thinCloud") ||
-                itemComponent.stackId.equals("block:MalevolentTempests:lightningCloud")) {
+                itemComponent.stackId.equals("block:MalevolentTempests:thinCloud")) {
             itemEntity.destroy();
         }
     }

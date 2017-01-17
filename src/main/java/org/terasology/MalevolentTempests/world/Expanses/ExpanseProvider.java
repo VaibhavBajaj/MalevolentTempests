@@ -16,7 +16,7 @@ import org.terasology.world.generation.facets.SurfaceHeightFacet;
 import org.terasology.world.generator.plugin.RegisterPlugin;
 
 /*
- * Marks random [3-10]x[3-10] block sets as true in the expanseFacet.
+ * Marks random [5-10]x[5w-10] block sets as true in the expanseFacet.
  */
 
 @RegisterPlugin
@@ -25,8 +25,8 @@ import org.terasology.world.generator.plugin.RegisterPlugin;
 public class ExpanseProvider implements FacetProviderPlugin {
 
     private Noise noise;
-    private int totalRegionTypes = 3;
-    private int minDimension = 3;
+    private int totalRegionTypes = 2;
+    private int minDimension = 5;
     private int maxDimension = 10;
 
     @Override
@@ -67,7 +67,7 @@ public class ExpanseProvider implements FacetProviderPlugin {
                 }
 
                 /*
-                 * If region is valid, mark it for spawn [-1:empty, -2:thin-cloud, -3:lightning]
+                 * If region is valid, mark it for spawn [-1:empty, -2:thin-cloud]
                  * I chose negative values because no other values in facet have negative values.
                  */
                 if(regionValid) {
