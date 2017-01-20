@@ -1,6 +1,6 @@
 package org.terasology.MalevolentTempests.systems;
 
-import org.terasology.MalevolentTempests.components.UpdraftAccelerationComponent;
+import org.terasology.MalevolentTempests.components.UpdraftComponent;
 import org.terasology.entitySystem.entity.EntityManager;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.event.ReceiveEvent;
@@ -20,13 +20,14 @@ import org.terasology.registry.In;
 @RegisterSystem
 public class UpdraftAccelerationSystem extends BaseComponentSystem {
 
-    private final float acceleration = 1;
-    /* maxVelocity can be changed to go faster or slower. The faster one goes, the more damage he receives on landing */
-    private final float maxVelocity = 40;
-
     @In
     private EntityManager entityManager;
 
+    private final float acceleration = 1;
+    /* maxVelocity can be changed to push player upwards faster or slower.*/
+    private final float maxVelocity = 40;
+
+    /* This function causes the updraft blocks to accelerate the user upwards. */
     @ReceiveEvent
     public void onCharacterMovement(CharacterMoveInputEvent event, EntityRef player) {
         if (player.getComponent(LocationComponent.class) == null ||
@@ -38,9 +39,9 @@ public class UpdraftAccelerationSystem extends BaseComponentSystem {
         Vector3f playerPosition = new Vector3f(player.getComponent(LocationComponent.class).getWorldPosition());
 
         /* Iterates through all updraft Blocks. */
-        for (EntityRef block : entityManager.getEntitiesWith(UpdraftAccelerationComponent.class, LocationComponent.class)) {
+        for (EntityRef block : entityManager.getEntitiesWith(UpdraftComponent.class, LocationComponent.class)) {
             Vector3f blockPos = block.getComponent(LocationComponent.class).getWorldPosition();
-            if (blockPos != null && playerPosition != null) {
+            if (blockPos != null) {
                 /* If player is on or very near an updraft Block */
                 if (Math.round(playerPosition.getX()) == blockPos.getX()
                         && Math.round(playerPosition.getZ()) == blockPos.getZ()) {

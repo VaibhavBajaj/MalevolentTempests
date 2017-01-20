@@ -41,10 +41,12 @@ public class UpdraftRasterizer implements WorldRasterizerPlugin{
                  *
                  */
                 if((position.getY() < (tempestsFacet.getMaxCloudHeight() - 20)) &&
-                        ((position.getY() % 3 == 0) || ((-1 * position.getY()) % 3 == 0))) {
+                        ((position.getY() % updraftFacet.getUpdraftDistance() == 0)
+                                || ((-1 * position.getY()) % updraftFacet.getUpdraftDistance() == 0))) {
                     chunk.setBlock(ChunkMath.calcBlockPos(position), updraft);
                 }
             }
         }
     }
+
 }

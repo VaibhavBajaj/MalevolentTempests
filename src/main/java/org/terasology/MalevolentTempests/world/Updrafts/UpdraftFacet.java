@@ -10,8 +10,16 @@ import org.terasology.world.generation.facets.base.BaseBooleanFieldFacet2D;
 
 public class UpdraftFacet extends BaseBooleanFieldFacet2D {
 
+    /* The distance between two successive updrafts. */
+    private final int updraftDistance = 3;
+
     public UpdraftFacet(Region3i targetRegion, Border3D border) {
         super(targetRegion, border);
 
     }
+
+    public int getUpdraftDistance() {
+        return updraftDistance;
+    }
+
 }
